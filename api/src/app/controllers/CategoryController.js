@@ -1,9 +1,10 @@
 const CategoriesRepository = require('../repositores/CategoriesRepository');
 
-class CategoryContoller {
+class CategoryController {
   async index(request, response) {
     const categories = await CategoriesRepository.findAll();
 
+    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     response.json(categories);
   }
 
@@ -16,8 +17,8 @@ class CategoryContoller {
 
     const category = await CategoriesRepository.create({ name });
 
-    response.json(category);
+    response.status(201).json(category);
   }
 }
 
-module.exports = new CategoryContoller();
+module.exports = new CategoryController();
