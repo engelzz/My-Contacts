@@ -3,6 +3,8 @@ import PageHeader from '../../components/PageHeader';
 import ContactForm from '../../components/ContactForm';
 
 export default function NewContact() {
+  function handleSubmit() {}
+
   return (
     <>
       <PageHeader
@@ -10,6 +12,7 @@ export default function NewContact() {
       />
       <ContactForm
         buttonLabel="Cadastrar"
+        onSubmit={handleSubmit}
       />
     </>
   );
