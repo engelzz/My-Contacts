@@ -10,7 +10,7 @@ class ContactsService {
   }
 
   async createContact(contact) {
-    return this.httpCLient.post('/contacts', contact);
+    return this.httpCLient.post('/contacts', { body: contact });
   }
 }
 
