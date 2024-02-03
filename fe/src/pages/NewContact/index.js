@@ -25,7 +25,6 @@ export default function NewContact() {
       toast({
         type: 'danger',
         text: 'Ocorreu um erro ao cadastrar um contato!',
-
       });
     }
   }
