@@ -1,12 +1,15 @@
 import HttpClient from './utils/HttpClient';
+import CategoryMapper from './mappers/CategoryMapper';
 
 class CategoriesService {
   constructor() {
     this.httpCLient = new HttpClient('http://localhost:3001');
   }
 
-  listCategories() {
-    return this.httpCLient.get('/categories');
+  async listCategories() {
+    const categories = this.httpCLient.get('/categories');
+
+    return categories.map(CategoryMapper.toDomain);
   }
 }
 
