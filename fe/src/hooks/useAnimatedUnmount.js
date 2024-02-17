@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function useAnimatadedUnmount(visible) {
+export default function useAnimatedUnmount(visible) {
   const [shouldRender, setShouldRender] = useState(visible);
 
   const animatedElementRef = useRef(null);
@@ -15,8 +15,8 @@ export default function useAnimatadedUnmount(visible) {
     }
 
     const elementRef = animatedElementRef.current;
-    if (!visible && animatedElementRef.current) {
-      animatedElementRef.current.addEventListener('animationend', handleAnimationEnd);
+    if (!visible && elementRef) {
+      elementRef.addEventListener('animationend', handleAnimationEnd);
     }
 
     return () => {
