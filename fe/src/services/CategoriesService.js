@@ -7,7 +7,7 @@ class CategoriesService {
   }
 
   async listCategories() {
-    const categories = this.httpCLient.get('/categories');
+    const categories = await this.httpCLient.get('/categories');
 
     return categories.map(CategoryMapper.toDomain);
   }
